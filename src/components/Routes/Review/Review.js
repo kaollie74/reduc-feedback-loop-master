@@ -29,6 +29,10 @@ class Review extends Component {
          return (<ul key={i}><li> Support:  {item.support}</li></ul>)
       })}
 
+       {this.props.reduxStore.commentReducer.map ((item,i)=> {
+         return (<ul key={i}><li> Comment:  {item.comment}</li></ul>)
+      })}
+
       </section>
         
       </>
