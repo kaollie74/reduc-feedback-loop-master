@@ -5,6 +5,13 @@ class Review extends Component {
   state = {
     button: 'incomplete'
   }
+
+
+handleSubmit = () => {
+  console.log('In Order');
+  
+}
+
   render(){
 
 
@@ -14,6 +21,7 @@ class Review extends Component {
       <section>
       <h2>Review Your Feedback!</h2>
      
+
       {this.props.reduxStore.feelingReducer.map((item,i) =>{
         return(<ul key={i}><li> Feeling:  {item.feeling}</li></ul>)
 
@@ -32,6 +40,8 @@ class Review extends Component {
        {this.props.reduxStore.commentReducer.map ((item,i)=> {
          return (<ul key={i}><li> Comment:  {item.comment}</li></ul>)
       })}
+
+      <button onClick = {(event) => this.handleSubmit()}>Complete</button>
 
       </section>
         

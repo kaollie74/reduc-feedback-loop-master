@@ -19,7 +19,7 @@ nextPage = (event)=> {
 
   this.props.dispatch({type: 'UPDATE_COMMENT', payload: this.state.newFeeling})
 
-  this.props.history.push('/Comment')
+  this.props.history.push('/Review')
 }  
 
 handleChangeFor = (propsName, event) => {
@@ -31,8 +31,6 @@ handleChangeFor = (propsName, event) => {
   })
 }
 
-  
-  
   
   render(){
 

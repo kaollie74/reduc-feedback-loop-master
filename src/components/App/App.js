@@ -16,9 +16,6 @@ import Submit from '../Routes/Submit/Submit';
 class App extends Component {
 
 
-
-
-
   render() {
     return (
 
