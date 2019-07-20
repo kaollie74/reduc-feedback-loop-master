@@ -8,12 +8,27 @@ class Understanding extends Component {
 
   state = {
     newFeeling : {
-      Understanding: ''
+      understanding: ''
     }
   }
 
-nextPage = () => {
+
+
+nextPage = (event)=> {
+  event.preventDefault();
+
+  this.props.dispatch({type: 'UPDATE_UNDERSTANDING', payload: this.state.newFeeling})
+
   this.props.history.push('/Support')
+}  
+
+handleChangeFor = (propsName, event) => {
+  this.setState({
+    newFeeling: {
+      ...this.state.newFeeling,
+      [propsName]: event.target.value
+    }
+  })
 }
 
 
@@ -23,7 +38,7 @@ nextPage = () => {
       <h1>How Well are you Understanding this content?</h1>
 
       <form>
-      <input type="number" placeholder="Understanding" />
+      <input type="number" placeholder="Understanding" onChange={(event) => this.handleChangeFor('understanding', event)} />
       <button onClick={this.nextPage}>Next</button>
       </form>
 

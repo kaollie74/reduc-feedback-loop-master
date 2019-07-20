@@ -11,22 +11,44 @@ import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 
 
-const feedback = [{feeling: 0, understanding: 0, support: 0, comments: ''}]
+const feedback = [{feeling: 0, understanding: 9 , support: 0, comments: 0}]
 
-const feedbackReducer = (state= [], action) => {
+const feelingReducer = (state= feedback, action) => {
+       
+        
     if(action.type === 'UPDATE_FEELING'){
-        return [...state, action.payload];
+        return [action.payload];
+    }
+    return state;
+}
+
+const understandingReducer = (state= feedback, action) => {
+    if(action.type === 'UPDATE_UNDERSTANDING' ){
+        return [action.payload]
+    }
+    return state;
+}
+
+const supportReducer = (state = feedback, action ) => {
+    if(action.type === 'UPDATE_SUPPORT'){
+        return [action.payload]
     }
     return state;
 }
 
 
+
+
 const reduxStore = createStore(
     combineReducers({
-       feedbackReducer
+       feelingReducer,
+       understandingReducer,
+       supportReducer
     }),
     applyMiddleware(logger)
 );
 
 ReactDOM.render(<Provider store={reduxStore}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
+
+ 

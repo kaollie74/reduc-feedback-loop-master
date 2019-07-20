@@ -4,9 +4,6 @@ import {connect} from 'react-redux';
 
 
 
-
-
-
 class Feeling extends Component {
 
   state = {
@@ -19,14 +16,14 @@ nextPage = (event)=> {
   event.preventDefault();
 
   this.props.dispatch({type: 'UPDATE_FEELING', payload: this.state.newFeeling})
-  
+
   this.props.history.push('/Understanding')
 }  
 
 handleChangeFor = (propsName, event) => {
   this.setState({
     newFeeling: {
-      ...this.state.newFeeling,
+      
       [propsName]: event.target.value
     }
   })

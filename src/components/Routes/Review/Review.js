@@ -6,7 +6,7 @@ class Review extends Component {
     button: 'incomplete'
   }
   render(){
-    
+
 
      if(this.state.button === 'incomplete'){
     return(
@@ -14,48 +14,50 @@ class Review extends Component {
       <section>
       <h2>Review Your Feedback!</h2>
      
-      {this.props.reduxStore.feedbackReducer.map((item,i) =>{
-       return( <ul key={i}>
-          <li>Feeling: {item.feeling}</li>
-          <li>Understanding: {item.understanding}</li>
-          <li>Support: {item.support}</li>
-          <li>Comments: {item.comments}</li>
-          <button>Incomplete</button>
-        </ul>)
+      {this.props.reduxStore.feelingReducer.map((item,i) =>{
+        return(<ul key={i}><li> Feeling:  {item.feeling}</li></ul>)
 
+
+      })}
+
+       
+      {this.props.reduxStore.understandingReducer.map ((item,i)=> {
+         return (<ul key={i}><li> Understanding:  {item.understanding}</li></ul>)
+      })}
+
+      {this.props.reduxStore.supportReducer.map ((item,i)=> {
+         return (<ul key={i}><li> Support:  {item.support}</li></ul>)
       })}
 
       </section>
         
-   
-    
       </>
       )
-    }else{return(
-      <>
-      <section>
-      <h2>Review Your Feedback!</h2>
+     } //else{return(
+    //   <>
+    //   <section>
+    //   <h2>Review Your Feedback!</h2>
      
-      {this.props.reduxStore.feedbackReducer.map((item,i) =>{
-       return( <ul key={i}>
-          <li>Feeling: {item.feeling}</li>
-          <li>Understanding: {item.understanding}</li>
-          <li>Support: {item.support}</li>
-          <li>Comments: {item.comments}</li>
-          <button>Complete</button>
-        </ul>)
+    //   {this.props.reduxStore.feedbackReducer.map((item,i) =>{
+    //    return( <ul key={i}>
+    //       <li>Feeling: {item.feeling}</li>
+    //       <li>Understanding: {item.understanding}</li>
+    //       <li>Support: {item.support}</li>
+    //       <li>Comments: {item.comments}</li>
+    //       <button>Complete</button>
+    //     </ul>)
 
-      })}
+    //   })}
 
-      </section>
+    //   </section>
         
    
     
-      </>
-      )
+    //   </>
+    //   )
 
       
-    }// end else
+    // }// end else
 
 
 
