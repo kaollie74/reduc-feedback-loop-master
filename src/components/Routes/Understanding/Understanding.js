@@ -1,7 +1,22 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import Review from '../Review/Review';
+
+
+
 class Understanding extends Component {
+
+  state = {
+    newFeeling : {
+      Understanding: ''
+    }
+  }
+
+nextPage = () => {
+  this.props.history.push('/Support')
+}
+
+
   render(){
     return(
       <>

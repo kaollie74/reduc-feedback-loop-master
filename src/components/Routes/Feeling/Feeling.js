@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Review from '../Review/Review'
-
+import {connect} from 'react-redux';
 
 
 
@@ -8,10 +8,29 @@ import Review from '../Review/Review'
 
 
 class Feeling extends Component {
+
+  state = {
+    newFeeling : {
+      feeling: ''
+    }
+  }
   
-nextPage = ()=> {
+nextPage = (event)=> {
+  event.preventDefault();
+
+  this.props.dispatch({type: 'UPDATE_FEELING', payload: this.state.newFeeling})
+  
   this.props.history.push('/Understanding')
 }  
+
+handleChangeFor = (propsName, event) => {
+  this.setState({
+    newFeeling: {
+      ...this.state.newFeeling,
+      [propsName]: event.target.value
+    }
+  })
+}
 
   render(){
 
@@ -20,11 +39,11 @@ nextPage = ()=> {
      <>
       <h1>How are you Feeling today?</h1>
 
-      <form>
-      <input type="number" placeholder="Feeling" />
-      <button onClick={this.nextPage}>Next</button>
+      <form >
+      <input type="number" placeholder="Feeling" onChange={(event) => this.handleChangeFor('feeling', event)} />
+      <button onClick={this.nextPage} type="submit">Next</button>
       </form>
-      
+
       <Review/>
       </>
    
@@ -33,4 +52,6 @@ nextPage = ()=> {
 
 }// end component
 
-export default Feeling;
+
+
+export default connect()(Feeling);

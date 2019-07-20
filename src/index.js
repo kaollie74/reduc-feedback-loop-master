@@ -11,10 +11,12 @@ import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 
 
-const feedback = [{feeling: 0, understanding: 0, support: 0, comments: 'blah'}]
+const feedback = [{feeling: 0, understanding: 0, support: 0, comments: ''}]
 
-const feedbackReducer = (state= feedback, action) => {
-
+const feedbackReducer = (state= [], action) => {
+    if(action.type === 'UPDATE_FEELING'){
+        return [...state, action.payload];
+    }
     return state;
 }
 
