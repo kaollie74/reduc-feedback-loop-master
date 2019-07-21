@@ -5,10 +5,10 @@ class Review extends Component {
   
   state = {
     feedback: {
-      feeling: 4,
-      understanding: 5,
-      support: 5,
-      comments: 'Awesome!'
+      feeling: this.props.reduxStore.feedbackReducer.feeling,
+      understanding: this.props.reduxStore.feedbackReducer.understand,
+      support: this.props.reduxStore.feedbackReducer.support,
+      comments: this.props.reduxStore.feedbackReducer.comment
     }
   }
 
@@ -19,7 +19,7 @@ handleSubmit = () => {
   console.log('In Order');
   
 
-  Axios.post('/feedback', this.props.reduxStore.feedbackReducer)
+  Axios.post('/feedback', this.state.feedback)
   .then((response)=>{
     this.props.dispatch({type: 'REMOVE_FEEDBACK'})
     alert('Feedback was submitted to Database')
@@ -49,7 +49,7 @@ handleSubmit = () => {
                   })} */}
 
 
-      {this.props.reduxStore.feelingReducer.map((item,i) =>{
+      {/* {this.props.reduxStore.feelingReducer.map((item,i) =>{
         return(<ul key={i}><li> Feeling:  {item.feeling}</li></ul>)
 
 
@@ -68,9 +68,14 @@ handleSubmit = () => {
          return (<ul key={i}><li> Comment:  {item.comment}</li></ul>)
       })}
 
-      <button onClick = {(event) => this.handleSubmit()}>Complete</button>
-
-
+      <button onClick = {(event) => this.handleSubmit()}>Complete</button> */}
+            {JSON.stringify(this.state)}
+          <h2> Feelings: {this.props.reduxStore.feedbackReducer.feeling}</h2>
+          <h2> Understanding: {this.props.reduxStore.feedbackReducer.understand}</h2>
+          <h2> Support: {this.props.reduxStore.feedbackReducer.support}</h2>
+          <h2> Comment: {this.props.reduxStore.feedbackReducer.comment}</h2>
+          <button onClick = {(event) => this.handleSubmit()}>Complete</button>
+             
 
       </section>
         

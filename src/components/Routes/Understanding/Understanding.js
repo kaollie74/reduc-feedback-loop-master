@@ -8,7 +8,7 @@ class Understanding extends Component {
 
   state = {
     newFeeling : {
-      understanding: ''
+      understand: ''
     }
   }
 
@@ -38,7 +38,7 @@ handleChangeFor = (propsName, event) => {
       <h1>How Well are you Understanding this content?</h1>
 
       <form>
-      <input type="number" placeholder="Understanding" onChange={(event) => this.handleChangeFor('understanding', event)} />
+      <input type="number" placeholder="Understanding" onChange={(event) => this.handleChangeFor('understand', event)} />
       <button onClick={this.nextPage}>Next</button>
       </form>
 
