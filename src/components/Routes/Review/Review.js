@@ -1,26 +1,53 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Axios from 'axios';
 class Review extends Component {
   
   state = {
-    button: 'incomplete'
+    feedback: {
+      feeling: 4,
+      understanding: 5,
+      support: 5,
+      comments: 'Awesome!'
+    }
   }
+
+
 
 
 handleSubmit = () => {
   console.log('In Order');
   
+
+  Axios.post('/feedback', this.props.reduxStore.feedbackReducer)
+  .then((response)=>{
+    this.props.dispatch({type: 'REMOVE_FEEDBACK'})
+    alert('Feedback was submitted to Database')
+    this.props.history.push('/')
+  })
+  
 }
 
   render(){
 
-
-     if(this.state.button === 'incomplete'){
+   
+     
     return(
       <>
       <section>
       <h2>Review Your Feedback!</h2>
      
+
+     {/* {this.props.reduxStore.feedbackReducer.map((item, i) => {
+                return( <ul key={i}>
+                   <li>Feeling: {item.feeling}</li>
+                   <li>Understanding: {item.understanding}</li>
+                   <li>Support: {item.support}</li>
+                   <li>Comments: {item.comments}</li>
+                   <button onClick = {(event) => this.handleSubmit()}>Complete</button>
+                 </ul>)
+                  })} */}
+
 
       {this.props.reduxStore.feelingReducer.map((item,i) =>{
         return(<ul key={i}><li> Feeling:  {item.feeling}</li></ul>)
@@ -42,6 +69,8 @@ handleSubmit = () => {
       })}
 
       <button onClick = {(event) => this.handleSubmit()}>Complete</button>
+
+
 
       </section>
         
@@ -77,7 +106,7 @@ handleSubmit = () => {
 
 
 
-  }// end render
+  // end render
 
 }// end component
 

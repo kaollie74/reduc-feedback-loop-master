@@ -11,7 +11,9 @@ import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 
 
-const feedback = [{feeling: 0, understanding: 9 , support: 0, comments: ''}]
+const feedback = [
+    {feeling: 0, understanding: 0 , support: 0, comments: ''}
+]
 
 const feelingReducer = (state= feedback, action) => {
        
@@ -44,6 +46,28 @@ const commentReducer = (state = feedback, action) => {
 }
 
 
+const feedbackSubmit = [ {feeling: '', understanding: '', support: '', comment: ''}]
+
+
+const feedbackReducer = (state = feedbackSubmit, action) => {
+ 
+    if (action.type === 'UPDATE_FEELING'){
+        console.log('in update feeling', action.payload)
+       return [...state.newSubmit, action.payload]
+    } else if (action.type === 'UPDATE_UNDERSTANDING'){
+       return [...state , action.payload]
+    }else if(action.type === 'UPDATE_SUPPORT'){
+      return [...state, action.payload]
+    }else if (action.type === 'UPDATE_COMMENT'){
+       return [...state, action.payload]
+    }
+    console.log('In feedback reducer', state);
+    
+    return state;
+}
+
+
+
 
 
 const reduxStore = createStore(
@@ -51,9 +75,13 @@ const reduxStore = createStore(
        feelingReducer,
        understandingReducer,
        supportReducer,
-       commentReducer
+       commentReducer,
+    feedbackReducer
+    
+      
     }),
     applyMiddleware(logger)
+    
 );
 
 ReactDOM.render(<Provider store={reduxStore}><App /></Provider>, document.getElementById('root'));
