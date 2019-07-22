@@ -34,15 +34,18 @@ handleChangeFor = (propsName, event) => {
 
     return(
      <>
-      <h1>How are you Feeling today?</h1>
+      <section className = "feeling">
+        <h1>How are you Feeling today?</h1>
 
-      <form >
-      <input type="number" placeholder="Feeling" onChange={(event) => this.handleChangeFor('feeling', event)} />
-      <button onClick={this.nextPage} type="submit">Next</button>
-      </form>
+        <form >
+        <input type="number" placeholder="Feeling" onChange={(event) => this.handleChangeFor('feeling', event)} />
+        <button onClick={this.nextPage} type="submit">Next</button>
+        </form>
 
-      <Review/>
-      </>
+        <Review/>
+      
+        </section>
+    </>
    
     )
   }
