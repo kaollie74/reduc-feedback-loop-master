@@ -37,7 +37,7 @@ handleSubmit = () => {
       <section>
       <h2>Review Your Feedback!</h2>
      
-            {JSON.stringify(this.state)}
+            
           <h2> Feelings: {this.props.reduxStore.feedbackReducer.feeling}</h2>
           <h2> Understanding: {this.props.reduxStore.feedbackReducer.understand}</h2>
           <h2> Support: {this.props.reduxStore.feedbackReducer.support}</h2>
