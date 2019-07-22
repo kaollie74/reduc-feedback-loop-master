@@ -31,87 +31,48 @@ handleSubmit = () => {
   render(){
 
    
-     
+    if (this.state.feedback.feeling >= 0 && this.state.feedback.understanding >= 0 && this.state.feedback.support >= 0 && this.state.feedback.comments !== '') {
     return(
       <>
       <section>
       <h2>Review Your Feedback!</h2>
      
-
-     {/* {this.props.reduxStore.feedbackReducer.map((item, i) => {
-                return( <ul key={i}>
-                   <li>Feeling: {item.feeling}</li>
-                   <li>Understanding: {item.understanding}</li>
-                   <li>Support: {item.support}</li>
-                   <li>Comments: {item.comments}</li>
-                   <button onClick = {(event) => this.handleSubmit()}>Complete</button>
-                 </ul>)
-                  })} */}
-
-
-      {/* {this.props.reduxStore.feelingReducer.map((item,i) =>{
-        return(<ul key={i}><li> Feeling:  {item.feeling}</li></ul>)
-
-
-      })}
-
-       
-      {this.props.reduxStore.understandingReducer.map ((item,i)=> {
-         return (<ul key={i}><li> Understanding:  {item.understanding}</li></ul>)
-      })}
-
-      {this.props.reduxStore.supportReducer.map ((item,i)=> {
-         return (<ul key={i}><li> Support:  {item.support}</li></ul>)
-      })}
-
-       {this.props.reduxStore.commentReducer.map ((item,i)=> {
-         return (<ul key={i}><li> Comment:  {item.comment}</li></ul>)
-      })}
-
-      <button onClick = {(event) => this.handleSubmit()}>Complete</button> */}
             {JSON.stringify(this.state)}
           <h2> Feelings: {this.props.reduxStore.feedbackReducer.feeling}</h2>
           <h2> Understanding: {this.props.reduxStore.feedbackReducer.understand}</h2>
           <h2> Support: {this.props.reduxStore.feedbackReducer.support}</h2>
           <h2> Comment: {this.props.reduxStore.feedbackReducer.comment}</h2>
-          <button disabled onClick = {(event) => this.handleSubmit()}>Complete</button>
+          <button onClick = {(event) => this.handleSubmit()}>Complete</button>
              
 
       </section>
         
       </>
-      )
-     } //else{return(
-    //   <>
-    //   <section>
-    //   <h2>Review Your Feedback!</h2>
+      ) // end return 
+    } else {
+
+      return(
+      <>
+      <section>
+      <h2>Review Your Feedback!</h2>
      
-    //   {this.props.reduxStore.feedbackReducer.map((item,i) =>{
-    //    return( <ul key={i}>
-    //       <li>Feeling: {item.feeling}</li>
-    //       <li>Understanding: {item.understanding}</li>
-    //       <li>Support: {item.support}</li>
-    //       <li>Comments: {item.comments}</li>
-    //       <button>Complete</button>
-    //     </ul>)
+            {JSON.stringify(this.state)}
+          <h2> Feelings: {this.props.reduxStore.feedbackReducer.feeling}</h2>
+          <h2> Understanding: {this.props.reduxStore.feedbackReducer.understand}</h2>
+          <h2> Support: {this.props.reduxStore.feedbackReducer.support}</h2>
+          <h2> Comment: {this.props.reduxStore.feedbackReducer.comment}</h2>
+          <button disabled onClick = {(event) => this.handleSubmit()}>InComplete</button>
+             
 
-    //   })}
-
-    //   </section>
+      </section>
         
+      </>
+      ) // end return 
+
+
+    }
+     } // end render
    
-    
-    //   </>
-    //   )
-
-      
-    // }// end else
-
-
-
-
-
-  // end render
 
 }// end component
 
