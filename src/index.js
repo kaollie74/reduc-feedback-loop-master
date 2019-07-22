@@ -81,7 +81,8 @@ const feedbackReducer = (state = {}, action) => {
         return {...state, comment: action.payload.comment};
     }
     if(action.type === 'RESET') {
-        return action.payload;
+        state = {};
+        return state;
     }
     return state;
 }

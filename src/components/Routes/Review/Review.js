@@ -23,7 +23,7 @@ handleSubmit = () => {
   .then((response)=>{
     this.props.dispatch({type: 'REMOVE_FEEDBACK'})
     alert('Feedback was submitted to Database')
-    this.props.history.push('/')
+    this.props.history.push('/Thankyou')
   })
   
 }
@@ -74,7 +74,7 @@ handleSubmit = () => {
           <h2> Understanding: {this.props.reduxStore.feedbackReducer.understand}</h2>
           <h2> Support: {this.props.reduxStore.feedbackReducer.support}</h2>
           <h2> Comment: {this.props.reduxStore.feedbackReducer.comment}</h2>
-          <button onClick = {(event) => this.handleSubmit()}>Complete</button>
+          <button disabled onClick = {(event) => this.handleSubmit()}>Complete</button>
              
 
       </section>

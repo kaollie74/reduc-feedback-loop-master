@@ -11,6 +11,7 @@ import Supported from '../Routes/Support/Support';
 import Comments from '../Routes/Comment/Comment';
 import Review from '../Routes/Review/Review';
 import Submit from '../Routes/Submit/Submit';
+import Thankyou from '../Routes/ThankYou/ThankYou';
 
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
         <Route path="/Comment" component={Comments} />
         <Route path="/Review" component={Review} />
         <Route path="/Submit" component={Submit} />
+        <Route path="/Thankyou" component = {Thankyou}/>
 
         </Router>
       </section>
