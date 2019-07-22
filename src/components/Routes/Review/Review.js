@@ -31,7 +31,7 @@ handleSubmit = () => {
   render(){
 
    
-    if (this.state.feedback.feeling >= 0 && this.state.feedback.understanding >= 0 && this.state.feedback.support >= 0 && this.state.feedback.comments !== '') {
+    if (this.state.feedback.feeling >= 0 && this.state.feedback.understanding >= 0 && this.state.feedback.support >= 0 && this.props.reduxStore.feedbackReducer.comment !== '') {
     return(
       <>
       <section>

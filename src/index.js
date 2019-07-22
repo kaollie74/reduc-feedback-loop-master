@@ -66,7 +66,7 @@ import {Provider} from 'react-redux';
 //     return state;
 // }
 
-const feedbackReducer = (state = {}, action) => {
+const feedbackReducer = (state = {feeling: 0, understand: 0, support: 0, comment: ''}, action) => {
     console.log('in survey reducer, payload is: ', action.payload)
     if (action.type === 'UPDATE_FEELING') {
         return {...state, feeling: action.payload.feeling};
